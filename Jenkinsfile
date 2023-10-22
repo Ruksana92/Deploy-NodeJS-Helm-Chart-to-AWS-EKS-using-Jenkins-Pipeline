@@ -7,7 +7,7 @@ pipeline {
     stage("Clone code from GitHub") {
             steps {
                 script {
-                    checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'githubwithpassword', url: 'https://github.com/devopshint/kubernetes_jenkins_pipeline.git']]])
+                    checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'githubwithpassword', url: 'https://github.com/Ruksana92/Deploy-NodeJS-Helm-Chart-to-AWS-EKS-using-Jenkins-Pipeline.git']]])
                 }
             }
         }
