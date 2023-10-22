@@ -30,7 +30,7 @@ pipeline {
         stage('Deploy Docker Image to DockerHub') {
             steps {
                 script {
-                 withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')]) {
+                 withCredentials([string(credentialsId: 'ruksana92', variable: '')]) {
                     sh 'docker login -u devopshint -p ${dockerhubpwd}'
                  }  
                  sh 'docker push devopshint/node-app-1.0'
@@ -38,7 +38,7 @@ pipeline {
             }
         }
          
-     stage('Deploying Node App to Kubernetes') {
+     stage('Deploying Node App to helm chart on eks') {
       steps {
         script {
           kubernetesDeploy(configs: "nodeapp-deployment-service.yml", kubeconfigId: "kubernetes_config")
