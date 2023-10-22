@@ -41,7 +41,9 @@ pipeline {
      stage('Deploying Node App to helm chart on eks') {
       steps {
         script {
-          kubernetesDeploy(configs: "nodeapp-deployment-service.yml", kubeconfigId: "kubernetes_config")
+          sh ('aws eks update-kubeconfig --name sample-ekscluster --region us-east-1')
+          sh "kubectl get ns"
+          sh "helm install nodeapp ./node-app"
         }
       }
     }
