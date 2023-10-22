@@ -31,7 +31,7 @@ pipeline {
             steps {
                 script {
                  withCredentials([string(credentialsId: 'ruksana92', variable: '')]) {
-                    sh 'docker login -u ruksana92 -p ${dockerhubpwd}'
+                    sh 'docker login -u ruksana92  -p  ${dockerhubpwd}'
                  }  
                  sh 'docker push ruksana92/node-app-1.0'
                 }
